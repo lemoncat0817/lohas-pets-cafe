@@ -1,0 +1,18 @@
+<template>
+  <div class="flex min-h-screen flex-col">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-primary-foreground"
+    >
+      跳到主要內容
+    </a>
+    <AppHeader />
+    <main
+      id="main-content"
+      class="flex-1"
+    >
+      <slot />
+    </main>
+    <AppFooter />
+  </div>
+</template>
