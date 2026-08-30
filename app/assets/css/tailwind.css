@@ -136,3 +136,13 @@
     @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
   }
 }
+
+/* Native page-transition cross-fade (Chromium only; other browsers ignore
+   these pseudo-elements entirely, so this is purely progressive enhancement).
+   Nuxt's `experimental.viewTransition` already skips the transition under
+   prefers-reduced-motion, so no extra guard is needed here. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.32s;
+  animation-timing-function: ease-out;
+}

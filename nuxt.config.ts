@@ -39,6 +39,13 @@ export default defineNuxtConfig({
     defaultLocale: 'zh-TW',
   },
   future: { compatibilityVersion: 4 },
+
+  // Native browser page transitions. Chromium gets a smooth cross-fade;
+  // other browsers silently no-op (plain navigation, no regression).
+  // Nuxt automatically skips this when prefers-reduced-motion is set.
+  experimental: {
+    viewTransition: true,
+  },
   compatibilityDate: '2026-01-01',
 
   nitro: {
