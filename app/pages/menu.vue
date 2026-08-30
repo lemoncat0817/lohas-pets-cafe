@@ -28,6 +28,30 @@ useSeoMeta({
   description: '查看 LOHAS Pets Café 的完整菜單：主食、特調飲品、寵物餐點與甜點。',
 })
 
+// Menu structured data (schema.org Menu/MenuSection/MenuItem) so search engines
+// can surface individual dishes and prices directly in results.
+useSchemaOrg([
+  {
+    '@type': 'Menu',
+    'name': '美味佳餚',
+    'hasMenuSection': menu.map(category => ({
+      '@type': 'MenuSection',
+      'name': category.title,
+      'description': category.subtitle,
+      'hasMenuItem': category.items.map(item => ({
+        '@type': 'MenuItem',
+        'name': item.name,
+        'description': item.description,
+        'offers': {
+          '@type': 'Offer',
+          'price': item.price,
+          'priceCurrency': 'TWD',
+        },
+      })),
+    })),
+  },
+])
+
 const categoryImages: Record<string, string> = {
   'mains': '/images/menu/menu-pasta.webp',
   'drinks': '/images/menu/menu-latte.webp',

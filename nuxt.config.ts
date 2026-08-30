@@ -95,6 +95,34 @@ export default defineNuxtConfig({
   ogImage: { enabled: false },
   robots: { enabled: true },
 
+  // Written as a plain object (not the `defineLocalBusiness()` helper) because that
+  // helper lives in `nuxt-schema-org/schema`, a transitive dep of @nuxtjs/seo that
+  // pnpm doesn't hoist to the root — importing it here would fail to resolve.
+  // The shape nuxt-schema-org expects is identical either way.
+  schemaOrg: {
+    identity: {
+      '@type': ['Restaurant'],
+      'name': 'LOHAS Pets Café',
+      'description': '台北的寵物友善咖啡廳，提供人與毛孩共享的餐點、店貓店狗互動與寵物零食專賣。',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': '貓爪路三段貓尾巷 5 號',
+        'addressLocality': '肥貓區',
+        'addressRegion': '貓貓市',
+        'addressCountry': 'TW',
+      },
+      'image': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/images/hero/hero-cafe.webp`,
+      'logo': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/favicon.svg`,
+      'servesCuisine': ['Café', 'Pet-friendly'],
+      'priceRange': '$$',
+      'acceptsReservations': 'True',
+      'openingHoursSpecification': [
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Wednesday', 'Thursday', 'Friday'], 'opens': '11:00', 'closes': '20:00' },
+        { '@type': 'OpeningHoursSpecification', 'dayOfWeek': ['Saturday', 'Sunday'], 'opens': '10:00', 'closes': '21:00' },
+      ],
+    },
+  },
+
   shadcn: {
     prefix: '',
     componentDir: './app/components/ui',

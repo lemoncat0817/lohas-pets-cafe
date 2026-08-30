@@ -18,9 +18,15 @@ export const site = {
   address: '貓貓市肥貓區貓爪路三段貓尾巷 5 號',
   addressNote: '鄰近肥貓公園捷運站 2 號出口，步行約 5 分鐘',
   hours: [
-    { day: '週一 至 週五', time: '11:00 – 20:00' },
+    { day: '週三 至 週五', time: '11:00 – 20:00' },
     { day: '週六、週日', time: '10:00 – 21:00' },
-    { day: '每週二', time: '公休' },
+    { day: '週一、週二', time: '公休' },
+  ],
+  // Machine-readable mirror of `hours` above, for schema.org openingHoursSpecification.
+  // Keep in sync with `hours` if the schedule ever changes.
+  openingHours: [
+    { days: ['Wednesday', 'Thursday', 'Friday'], opens: '11:00', closes: '20:00' },
+    { days: ['Saturday', 'Sunday'], opens: '10:00', closes: '21:00' },
   ],
   reservationNote: '本餐廳目前無提供電話訂位服務，如有用餐需求請至現場排隊等候入場。',
   email: 'hello@lohaspetscafe.example.com',

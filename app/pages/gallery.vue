@@ -59,10 +59,37 @@
 </template>
 
 <script setup lang="ts">
-import { galleryPhotos } from '@/data/testimonials'
+import { galleryPhotos, testimonials } from '@/data/testimonials'
 
 useSeoMeta({
   title: '評價 & 用餐環境',
   description: '瀏覽 LOHAS Pets Café 的用餐環境照片與顧客五星好評。',
 })
+
+// AggregateRating + individual Review nodes for the testimonials rendered on
+// this page. These are first-party reviews collected and displayed on our
+// own site, which is what Google's structured-data guidelines require —
+// aggregating third-party platform ratings here would not be compliant.
+const averageRating = testimonials.reduce((sum, t) => sum + t.rating, 0) / testimonials.length
+
+useSchemaOrg([
+  {
+    '@type': 'AggregateRating',
+    'ratingValue': Number(averageRating.toFixed(1)),
+    'reviewCount': testimonials.length,
+    'bestRating': 5,
+    'worstRating': 1,
+  },
+  ...testimonials.map(t => ({
+    '@type': 'Review',
+    'author': { '@type': 'Person', 'name': t.name },
+    'reviewBody': t.text,
+    'reviewRating': {
+      '@type': 'Rating',
+      'ratingValue': t.rating,
+      'bestRating': 5,
+      'worstRating': 1,
+    },
+  })),
+])
 </script>
