@@ -93,7 +93,12 @@ export default defineNuxtConfig({
   linkChecker: { enabled: false },
 
   ogImage: { enabled: false },
-  robots: { enabled: true },
+  // robots.txt only means anything at an origin's root. This site deploys under
+  // /Vue3-PetCafe/ on GitHub Pages (a project page, not the account's root page),
+  // so a robots.txt written there would sit at a path crawlers never check —
+  // @nuxt/robots refuses to generate one in that case. sitemap.xml still works
+  // fine at the subpath and gets submitted directly to Search Console.
+  robots: { enabled: true, robotsTxt: !isGithubPages },
 
   // Written as a plain object (not the `defineLocalBusiness()` helper) because that
   // helper lives in `nuxt-schema-org/schema`, a transitive dep of @nuxtjs/seo that
