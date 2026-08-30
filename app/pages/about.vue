@@ -85,7 +85,7 @@
       >
         <NuxtImg
           src="/images/about/founder.webp"
-          alt="LOHAS Pets Café 創辦人林知言"
+          alt="LOHAS Pets Café 創辦人檸檬貓"
           class="aspect-[4/5] w-full rounded-2xl object-cover sm:aspect-square"
           width="220"
           height="220"
@@ -93,7 +93,7 @@
         />
         <div>
           <h3 class="font-display text-xl font-bold text-foreground">
-            林知言
+            檸檬貓
           </h3>
           <p class="mt-0.5 text-sm text-primary">
             創辦人 ‧ 主理人
