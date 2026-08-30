@@ -116,7 +116,7 @@ export default defineNuxtConfig({
         'addressRegion': '貓貓市',
         'addressCountry': 'TW',
       },
-      'image': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/images/hero/hero-cafe.webp`,
+      'image': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/images/hero/hero-poster.webp`,
       'logo': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/favicon.svg`,
       'servesCuisine': ['Café', 'Pet-friendly'],
       'priceRange': '$$',

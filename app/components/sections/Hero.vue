@@ -1,14 +1,31 @@
 <template>
   <section class="relative flex min-h-[85vh] items-center overflow-hidden border-b border-border">
-    <NuxtImg
-      src="/images/hero/hero-cafe.webp"
-      alt="顧客與店犬在 LOHAS Pets Café 窗邊座位喝咖啡"
+    <!-- Ambient looping video. No `autoplay` attribute in the markup — whether it
+         actually plays is decided client-side after mount (see below), so the
+         server-rendered and hydrated DOM are always structurally identical and
+         prefers-reduced-motion never causes a hydration mismatch. Native
+         <video>/<source> aren't routed through @nuxt/image, so the base URL
+         (e.g. /Vue3-PetCafe/ on GitHub Pages) has to be prepended by hand. -->
+    <video
+      ref="videoEl"
       class="absolute inset-0 h-full w-full object-cover"
-      width="2400"
-      height="1600"
-      loading="eager"
-      fetchpriority="high"
-    />
+      :poster="withBase('/images/hero/hero-poster.webp')"
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+    >
+      <source
+        :src="withBase('/videos/hero-espresso.webm')"
+        type="video/webm"
+      >
+      <source
+        :src="withBase('/videos/hero-espresso.mp4')"
+        type="video/mp4"
+      >
+    </video>
+
     <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/10" />
 
     <div class="container-cafe relative py-24 sm:py-32">
@@ -50,4 +67,27 @@
 
 <script setup lang="ts">
 import { Button } from '@/components/ui/button'
+
+const videoEl = ref<HTMLVideoElement | null>(null)
+const reducedMotion = usePreferredReducedMotion()
+
+const { app } = useRuntimeConfig()
+function withBase(path: string) {
+  const base = app.baseURL.endsWith('/') ? app.baseURL.slice(0, -1) : app.baseURL
+  return `${base}${path}`
+}
+
+// Client-only decision: play the ambient video unless the visitor has asked for
+// reduced motion, in which case it just sits on the poster frame. `videoEl` is
+// only populated once mounted, so the initial check happens in onMounted rather
+// than an immediate watcher; the watcher itself covers the OS preference
+// changing live mid-session.
+function syncPlayback(prefersReduced: string) {
+  if (!videoEl.value) return
+  if (prefersReduced === 'reduce') videoEl.value.pause()
+  else videoEl.value.play().catch(() => {})
+}
+
+onMounted(() => syncPlayback(reducedMotion.value))
+watch(reducedMotion, syncPlayback)
 </script>
