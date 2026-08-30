@@ -1,7 +1,7 @@
 import tailwindcss from '@tailwindcss/vite'
 
 const isGithubPages = process.env.DEPLOY_TARGET === 'github-pages'
-const baseURL = isGithubPages ? '/Vue3-PetCafe/' : '/'
+const baseURL = isGithubPages ? '/lohas-pets-cafe/' : '/'
 const siteUrl = 'https://lemoncat0817.github.io'
 
 export default defineNuxtConfig({
@@ -94,7 +94,7 @@ export default defineNuxtConfig({
 
   ogImage: { enabled: false },
   // robots.txt only means anything at an origin's root. This site deploys under
-  // /Vue3-PetCafe/ on GitHub Pages (a project page, not the account's root page),
+  // /lohas-pets-cafe/ on GitHub Pages (a project page, not the account's root page),
   // so a robots.txt written there would sit at a path crawlers never check —
   // @nuxt/robots refuses to generate one in that case. sitemap.xml still works
   // fine at the subpath and gets submitted directly to Search Console.
@@ -116,8 +116,8 @@ export default defineNuxtConfig({
         'addressRegion': '貓貓市',
         'addressCountry': 'TW',
       },
-      'image': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/images/hero/hero-poster.webp`,
-      'logo': `${siteUrl}${isGithubPages ? '/Vue3-PetCafe' : ''}/favicon.svg`,
+      'image': `${siteUrl}${isGithubPages ? '/lohas-pets-cafe' : ''}/images/hero/hero-poster.webp`,
+      'logo': `${siteUrl}${isGithubPages ? '/lohas-pets-cafe' : ''}/favicon.svg`,
       'servesCuisine': ['Café', 'Pet-friendly'],
       'priceRange': '$$',
       'acceptsReservations': 'True',

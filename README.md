@@ -1,6 +1,6 @@
 # LOHAS Pets Café ‧ 樂活寵物咖啡廳
 
-[![Deploy](https://github.com/lemoncat0817/Vue3-PetCafe/actions/workflows/deploy.yml/badge.svg)](https://github.com/lemoncat0817/Vue3-PetCafe/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/lemoncat0817/lohas-pets-cafe/actions/workflows/deploy.yml/badge.svg)](https://github.com/lemoncat0817/lohas-pets-cafe/actions/workflows/deploy.yml)
 ![Nuxt](https://img.shields.io/badge/Nuxt-4-00DC82?logo=nuxtdotjs&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-strict-3178C6?logo=typescript&logoColor=white)
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?logo=tailwindcss&logoColor=white)
@@ -8,7 +8,7 @@
 
 一個寵物友善咖啡廳的形象網站。Nuxt 4 靜態產生（SSG）的多頁面站台。
 
-**🔗 Demo：https://lemoncat0817.github.io/Vue3-PetCafe/**
+**🔗 Demo：https://lemoncat0817.github.io/lohas-pets-cafe/**
 
 ## 預覽
 
