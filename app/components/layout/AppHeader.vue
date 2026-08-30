@@ -21,11 +21,13 @@
         </NuxtLink>
       </nav>
 
-      <div class="hidden lg:block">
+      <div class="flex items-center gap-2">
+        <ModeToggle />
+
         <Button
           as-child
           size="sm"
-          class="rounded-full px-5"
+          class="hidden rounded-full px-5 lg:inline-flex"
         >
           <NuxtLink to="/contact">聯絡我們</NuxtLink>
         </Button>
@@ -79,6 +81,7 @@ import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet'
 import { navLinks } from '@/data/site'
 import AppLogo from './AppLogo.vue'
+import ModeToggle from './ModeToggle.vue'
 
 const mobileOpen = ref(false)
 const { y } = useWindowScroll()

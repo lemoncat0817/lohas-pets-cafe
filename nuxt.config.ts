@@ -11,6 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/icon',
     '@nuxt/image',
+    '@nuxtjs/color-mode',
     '@nuxtjs/seo',
     '@vueuse/nuxt',
     'shadcn-nuxt',
@@ -37,6 +38,12 @@ export default defineNuxtConfig({
     name: 'LOHAS Pets Café ‧ 樂活寵物咖啡廳',
     description: '台北的寵物友善咖啡廳，提供人與毛孩共享的餐點、店貓店狗互動與寵物零食專賣，歡迎帶著毛孩子一起來用餐。',
     defaultLocale: 'zh-TW',
+  },
+
+  colorMode: {
+    classSuffix: '',
+    preference: 'system',
+    fallback: 'light',
   },
   future: { compatibilityVersion: 4 },
 
