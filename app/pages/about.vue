@@ -73,6 +73,41 @@
       </div>
     </section>
 
+    <section class="container-cafe py-16 sm:py-20">
+      <SectionHeading
+        eyebrow="Founder"
+        title="主理人的話"
+      />
+      <div
+        :ref="founderReveal.target"
+        class="mx-auto mt-12 grid max-w-3xl gap-8 rounded-3xl border border-border bg-card p-6 transition-all duration-700 ease-out sm:grid-cols-[220px_1fr] sm:p-8"
+        :class="founderReveal.visible.value ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
+      >
+        <NuxtImg
+          src="/images/about/founder.webp"
+          alt="LOHAS Pets Café 創辦人林知言"
+          class="aspect-[4/5] w-full rounded-2xl object-cover sm:aspect-square"
+          width="220"
+          height="220"
+          loading="lazy"
+        />
+        <div>
+          <h3 class="font-display text-xl font-bold text-foreground">
+            林知言
+          </h3>
+          <p class="mt-0.5 text-sm text-primary">
+            創辦人 ‧ 主理人
+          </p>
+          <p class="mt-4 leading-relaxed text-muted-foreground">
+            曾在動物醫院擔任志工，看過太多毛孩因為「餐廳不能帶寵物」而被留在門外等待的畫面。與幾位同樣愛動物的朋友一拍即合，一起把這個想法變成了 LOHAS Pets Café。
+          </p>
+          <p class="mt-3 leading-relaxed text-muted-foreground">
+            「現在每天最期待的，就是看見顧客和店貓店犬玩成一片的樣子——這正是我們當初想做這件事的原因。」
+          </p>
+        </div>
+      </div>
+    </section>
+
     <CtaBanner />
   </div>
 </template>
@@ -87,6 +122,7 @@ useSeoMeta({
 
 const imgReveal = useScrollReveal()
 const textReveal = useScrollReveal({ delay: 150 })
+const founderReveal = useScrollReveal()
 
 const values = [
   {
