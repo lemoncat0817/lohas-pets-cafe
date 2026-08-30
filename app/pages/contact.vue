@@ -90,6 +90,16 @@
           class="mt-6 space-y-5"
           @submit="onSubmit"
         >
+          <!-- Honeypot: invisible to people, bots that blindly fill every field trip it. -->
+          <input
+            type="checkbox"
+            name="botcheck"
+            class="hidden"
+            style="display: none;"
+            tabindex="-1"
+            autocomplete="off"
+          >
+
           <FormField
             v-slot="{ componentField }"
             name="name"
@@ -209,9 +219,6 @@ useSeoMeta({
   description: '地址、營業時間與線上聯絡表單。',
 })
 
-// TODO: 替換為 web3forms.com 申請的免費 Access Key 才能實際送出表單。
-const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
-
 const formSchema = toTypedSchema(
   z.object({
     name: z.string().min(2, '請輸入至少 2 個字'),
@@ -222,23 +229,12 @@ const formSchema = toTypedSchema(
 )
 
 const { handleSubmit, isSubmitting } = useForm({ validationSchema: formSchema })
-const status = ref<'idle' | 'success' | 'error'>('idle')
+const { status, submit } = useWeb3Form()
 
-const onSubmit = handleSubmit(async (values) => {
-  status.value = 'idle'
-  try {
-    const res = await $fetch<{ success: boolean }>('https://api.web3forms.com/submit', {
-      method: 'POST',
-      body: {
-        access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `[LOHAS Pets Café 官網] 來自 ${values.name} 的訊息`,
-        ...values,
-      },
-    })
-    status.value = res.success ? 'success' : 'error'
-  }
-  catch {
-    status.value = 'error'
-  }
-})
+const onSubmit = handleSubmit(values =>
+  submit({
+    subject: `[LOHAS Pets Café 官網] 來自 ${values.name} 的訊息`,
+    ...values,
+  }),
+)
 </script>

@@ -49,15 +49,15 @@
             size="lg"
             class="rounded-full px-7"
           >
-            <NuxtLink to="/menu">查看菜單</NuxtLink>
+            <NuxtLink to="/reservation">立即訂位</NuxtLink>
           </Button>
           <Button
             as-child
             size="lg"
             variant="outline"
-            class="rounded-full px-7"
+            class="rounded-full bg-background/80 px-7 backdrop-blur"
           >
-            <NuxtLink to="/contact">交通與營業時間</NuxtLink>
+            <NuxtLink to="/menu">查看菜單</NuxtLink>
           </Button>
         </div>
       </div>

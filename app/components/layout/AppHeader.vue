@@ -7,14 +7,14 @@
       <AppLogo />
 
       <nav
-        class="hidden items-center gap-1 lg:flex"
+        class="hidden items-center gap-0.5 xl:flex"
         aria-label="主導覽"
       >
         <NuxtLink
           v-for="link in navLinks"
           :key="link.to"
           :to="link.to"
-          class="rounded-full px-3.5 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
+          class="rounded-full px-3 py-2 text-sm font-medium whitespace-nowrap text-foreground/80 transition-colors hover:bg-accent hover:text-accent-foreground"
           active-class="!bg-primary/10 !text-primary"
         >
           {{ link.label }}
@@ -27,9 +27,9 @@
         <Button
           as-child
           size="sm"
-          class="hidden rounded-full px-5 lg:inline-flex"
+          class="hidden rounded-full px-5 xl:inline-flex"
         >
-          <NuxtLink to="/contact">聯絡我們</NuxtLink>
+          <NuxtLink to="/reservation">立即訂位</NuxtLink>
         </Button>
       </div>
 
@@ -37,7 +37,7 @@
         <SheetTrigger as-child>
           <button
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground lg:hidden"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border text-foreground xl:hidden"
             aria-label="開啟選單"
           >
             <Icon

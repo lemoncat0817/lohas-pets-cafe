@@ -17,7 +17,7 @@
             variant="secondary"
             class="rounded-full px-7"
           >
-            <NuxtLink to="/contact">交通與地圖</NuxtLink>
+            <NuxtLink to="/reservation">立即訂位</NuxtLink>
           </Button>
           <Button
             as-child
@@ -25,7 +25,7 @@
             variant="outline"
             class="rounded-full border-primary-foreground/40 bg-transparent px-7 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
           >
-            <NuxtLink to="/faq">常見問題</NuxtLink>
+            <NuxtLink to="/contact">交通與地圖</NuxtLink>
           </Button>
         </div>
       </div>

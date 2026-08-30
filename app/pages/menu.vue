@@ -6,6 +6,22 @@
       description="從主食、特調飲品到寵物餐點與甜點，每一道都用心現做。"
     />
 
+    <div class="container-cafe flex justify-center pt-10 sm:pt-14">
+      <Button
+        as-child
+        size="lg"
+        class="rounded-full px-7"
+      >
+        <NuxtLink to="/reservation">
+          <Icon
+            name="lucide:calendar-check"
+            class="size-4"
+          />
+          看完菜單，立即訂位
+        </NuxtLink>
+      </Button>
+    </div>
+
     <div class="container-cafe space-y-16 py-16 sm:py-20">
       <MenuCategorySection
         v-for="(category, i) in menu"
@@ -21,6 +37,7 @@
 </template>
 
 <script setup lang="ts">
+import { Button } from '@/components/ui/button'
 import { menu } from '@/data/menu'
 
 useSeoMeta({

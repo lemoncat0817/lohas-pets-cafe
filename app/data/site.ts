@@ -2,12 +2,16 @@ export const navLinks = [
   { to: '/', label: '首頁' },
   { to: '/about', label: '關於我們' },
   { to: '/menu', label: '美味佳餚' },
+  { to: '/reservation', label: '線上訂位' },
   { to: '/pets', label: '毛孩子天地' },
   { to: '/shop', label: '寵物零食' },
   { to: '/gallery', label: '評價 & 環境' },
   { to: '/faq', label: '常見問題' },
   { to: '/contact', label: '聯絡我們' },
 ] as const
+
+// TODO: 替換為在 web3forms.com 申請的免費 Access Key，聯絡表單與訂位表單才能實際送出。
+export const WEB3FORMS_ACCESS_KEY = 'YOUR_WEB3FORMS_ACCESS_KEY'
 
 export const site = {
   name: 'LOHAS Pets Café',
@@ -28,7 +32,7 @@ export const site = {
     { days: ['Wednesday', 'Thursday', 'Friday'], opens: '11:00', closes: '20:00' },
     { days: ['Saturday', 'Sunday'], opens: '10:00', closes: '21:00' },
   ],
-  reservationNote: '本餐廳目前無提供電話訂位服務，如有用餐需求請至現場排隊等候入場。',
+  reservationNote: '提供線上訂位申請，我們會於營業時間內以電話或 Email 與您確認訂位是否可安排。若未收到確認，仍建議於預定時間親自來店詢問候位。',
   email: 'hello@lohaspetscafe.example.com',
   social: {
     facebook: 'https://www.facebook.com/',
