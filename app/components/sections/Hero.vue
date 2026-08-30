@@ -5,7 +5,7 @@
          server-rendered and hydrated DOM are always structurally identical and
          prefers-reduced-motion never causes a hydration mismatch. Native
          <video>/<source> aren't routed through @nuxt/image, so the base URL
-         (e.g. /lohas-pets-cafe/ on GitHub Pages) has to be prepended by hand. -->
+         (e.g. a /<repo-name>/ subpath on GitHub Pages) has to be prepended by hand. -->
     <video
       ref="videoEl"
       class="absolute inset-0 h-full w-full object-cover"

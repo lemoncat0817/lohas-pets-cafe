@@ -1,7 +1,18 @@
 import tailwindcss from '@tailwindcss/vite'
 
 const isGithubPages = process.env.DEPLOY_TARGET === 'github-pages'
-const baseURL = isGithubPages ? '/lohas-pets-cafe/' : '/'
+// GitHub Actions injects GITHUB_REPOSITORY ("owner/repo") into every job automatically —
+// deriving the repo name from it means the base path survives a repo rename with zero
+// code changes, instead of a string that has to be hand-updated every time. Only used
+// when actually building for GitHub Pages; falls back to '/' for local dev/preview.
+// To exercise this path locally, set GITHUB_REPOSITORY yourself before building, e.g.
+// `$env:GITHUB_REPOSITORY = 'owner/repo'` (PowerShell) or `GITHUB_REPOSITORY=owner/repo` (sh).
+const repoName = process.env.GITHUB_REPOSITORY?.split('/')[1]
+const baseURL = isGithubPages && repoName ? `/${repoName}/` : '/'
+// Same base path, without the trailing slash — for building absolute URLs like the
+// schema.org image/logo below, where `${basePrefix}/images/...` reads more naturally
+// than juggling baseURL's trailing slash at every call site.
+const basePrefix = baseURL === '/' ? '' : baseURL.slice(0, -1)
 const siteUrl = 'https://lemoncat0817.github.io'
 
 export default defineNuxtConfig({
@@ -93,8 +104,8 @@ export default defineNuxtConfig({
   linkChecker: { enabled: false },
 
   ogImage: { enabled: false },
-  // robots.txt only means anything at an origin's root. This site deploys under
-  // /lohas-pets-cafe/ on GitHub Pages (a project page, not the account's root page),
+  // robots.txt only means anything at an origin's root. This site deploys under a
+  // /<repo-name>/ subpath on GitHub Pages (a project page, not the account's root page),
   // so a robots.txt written there would sit at a path crawlers never check —
   // @nuxt/robots refuses to generate one in that case. sitemap.xml still works
   // fine at the subpath and gets submitted directly to Search Console.
@@ -116,8 +127,8 @@ export default defineNuxtConfig({
         'addressRegion': '貓貓市',
         'addressCountry': 'TW',
       },
-      'image': `${siteUrl}${isGithubPages ? '/lohas-pets-cafe' : ''}/images/hero/hero-poster.webp`,
-      'logo': `${siteUrl}${isGithubPages ? '/lohas-pets-cafe' : ''}/favicon.svg`,
+      'image': `${siteUrl}${basePrefix}/images/hero/hero-poster.webp`,
+      'logo': `${siteUrl}${basePrefix}/favicon.svg`,
       'servesCuisine': ['Café', 'Pet-friendly'],
       'priceRange': '$$',
       'acceptsReservations': 'True',
