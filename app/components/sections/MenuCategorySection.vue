@@ -37,7 +37,7 @@
         <li
           v-for="item in category.items"
           :key="item.name"
-          class="flex items-start justify-between gap-4 py-4"
+          class="-mx-3 flex items-start justify-between gap-4 rounded-lg px-3 py-4 transition-colors duration-200 hover:bg-accent/60"
         >
           <div>
             <div class="flex items-center gap-2">

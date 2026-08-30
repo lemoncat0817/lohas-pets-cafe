@@ -5,10 +5,10 @@
         v-for="(item, i) in items"
         :key="item.title"
         :ref="reveals[i].target"
-        class="rounded-2xl border border-border bg-card p-6 transition-all duration-700 ease-out"
+        class="group rounded-2xl border border-border bg-card p-6 transition-all duration-700 ease-out hover:border-primary/30 hover:shadow-lg"
         :class="reveals[i].visible.value ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'"
       >
-        <div class="flex size-11 items-center justify-center rounded-full bg-primary/10 text-primary">
+        <div class="flex size-11 items-center justify-center rounded-full bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
           <Icon
             :name="item.icon"
             class="size-5"

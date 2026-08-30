@@ -11,7 +11,7 @@
         <div
           v-for="item in featured"
           :key="item.name"
-          class="flex flex-col justify-between rounded-2xl border border-border bg-card p-6"
+          class="flex flex-col justify-between rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/30 hover:shadow-lg"
         >
           <div>
             <Badge

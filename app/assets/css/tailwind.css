@@ -137,6 +137,21 @@
   }
 }
 
+/* Blanket prefers-reduced-motion safeguard. useScrollReveal() and the hero video
+   already handle their own specific cases, but this covers every plain CSS
+   hover/transition micro-interaction (card lift, image zoom, etc.) in one place
+   instead of gating each one individually. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
 /* Native page-transition cross-fade (Chromium only; other browsers ignore
    these pseudo-elements entirely, so this is purely progressive enhancement).
    Nuxt's `experimental.viewTransition` already skips the transition under

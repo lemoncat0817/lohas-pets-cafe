@@ -1,7 +1,7 @@
 <template>
   <div
     :ref="target"
-    class="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-700 ease-out"
+    class="group overflow-hidden rounded-2xl border border-border bg-card transition-all duration-700 ease-out hover:border-primary/30 hover:shadow-lg"
     :class="visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'"
   >
     <div class="aspect-[4/3] overflow-hidden">
