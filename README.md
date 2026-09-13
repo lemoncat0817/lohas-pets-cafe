@@ -6,7 +6,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38BDF8?logo=tailwindcss&logoColor=white)
 ![shadcn-vue](https://img.shields.io/badge/shadcn--vue-Reka_UI-000000)
 
-一個寵物友善咖啡廳的形象網站。Nuxt 4 靜態產生（SSG）的多頁面站台。
+LOHAS Pets Café 是一個以寵物友善咖啡廳為主題的品牌形象網站，提供菜單、店寵介紹、環境展示與線上訂位等功能。
 
 **🔗 Demo：https://lemoncat0817.github.io/lohas-pets-cafe/**
 
