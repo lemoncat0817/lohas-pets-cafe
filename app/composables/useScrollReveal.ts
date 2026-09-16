@@ -27,10 +27,19 @@ export function useScrollReveal(options: { threshold?: number, delay?: number } 
     el.value = (value as Element | null) ?? null
   }
 
-  if (reducedMotion.value === 'reduce') {
-    visible.value = true
-  }
-  else {
+  // `usePreferredReducedMotion` reads the real OS preference synchronously
+  // once mounted client-side, but SSR always renders the not-yet-visible
+  // state — branching on it during setup would make the very first client
+  // render disagree with the server-rendered HTML whenever reduced motion is
+  // on. Deferring the branch to onMounted keeps the initial client render
+  // identical to SSR; `visible` then flips reactively right after, same as
+  // any other post-hydration update.
+  onMounted(() => {
+    if (reducedMotion.value === 'reduce') {
+      visible.value = true
+      return
+    }
+
     const { stop } = useIntersectionObserver(
       el,
       ([entry]) => {
@@ -48,7 +57,7 @@ export function useScrollReveal(options: { threshold?: number, delay?: number } 
       },
       { threshold, rootMargin: '0px 0px -10% 0px' },
     )
-  }
+  })
 
   return { target, visible }
 }
