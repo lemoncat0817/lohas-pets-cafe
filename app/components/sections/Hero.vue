@@ -70,12 +70,7 @@ import { Button } from '@/components/ui/button'
 
 const videoEl = ref<HTMLVideoElement | null>(null)
 const reducedMotion = usePreferredReducedMotion()
-
-const { app } = useRuntimeConfig()
-function withBase(path: string) {
-  const base = app.baseURL.endsWith('/') ? app.baseURL.slice(0, -1) : app.baseURL
-  return `${base}${path}`
-}
+const { withBase } = useBaseUrl()
 
 // Client-only decision: play the ambient video unless the visitor has asked for
 // reduced motion, in which case it just sits on the poster frame. `videoEl` is

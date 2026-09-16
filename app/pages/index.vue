@@ -3,6 +3,7 @@
     <Hero />
     <ValueProps />
     <MenuPreview />
+    <IntroScrub />
 
     <section class="container-cafe py-16 sm:py-20">
       <SectionHeading
