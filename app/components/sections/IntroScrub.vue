@@ -37,7 +37,27 @@
           <p class="font-display text-sm font-bold tracking-[0.2em] text-primary uppercase">
             Our Story
           </p>
-          <h2 class="mt-2 text-3xl font-bold text-foreground sm:text-4xl">
+          <div
+            v-if="scrubEnabled"
+            class="mt-2 grid"
+          >
+            <h2
+              class="col-start-1 row-start-1 text-3xl font-bold text-foreground sm:text-4xl"
+              :style="outgoingHeadlineStyle"
+            >
+              從一杯咖啡開始
+            </h2>
+            <h2
+              class="col-start-1 row-start-1 text-3xl font-bold text-foreground sm:text-4xl"
+              :style="incomingHeadlineStyle"
+            >
+              與毛孩子的每個日常
+            </h2>
+          </div>
+          <h2
+            v-else
+            class="mt-2 text-3xl font-bold text-foreground sm:text-4xl"
+          >
             從一杯咖啡開始，與毛孩子的每個日常
           </h2>
         </div>
@@ -70,4 +90,30 @@ const captionOpacity = computed(() => {
   if (p > 0.85) return (1 - p) / 0.15
   return 1
 })
+
+// The video crossfades from the coffee pour to the cats at 8.4-9.0s of its
+// 19.4s total — these fractions mirror that window so the headline pivots
+// in step with the footage instead of sitting static through both halves.
+const HEADLINE_SWITCH_START = 0.43
+const HEADLINE_SWITCH_END = 0.47
+
+const headlineSwitch = computed(() => {
+  const p = progress.value
+  if (p < HEADLINE_SWITCH_START) return 0
+  if (p > HEADLINE_SWITCH_END) return 1
+  return (p - HEADLINE_SWITCH_START) / (HEADLINE_SWITCH_END - HEADLINE_SWITCH_START)
+})
+
+// Two different-length strings crossfading in place would overlap into
+// unreadable double-exposed glyphs at the midpoint — offsetting them
+// vertically (outgoing drifts up, incoming rises from below) keeps them
+// legible through the handoff instead of just relying on opacity.
+const outgoingHeadlineStyle = computed(() => ({
+  opacity: 1 - headlineSwitch.value,
+  transform: `translateY(${headlineSwitch.value * -28}px)`,
+}))
+const incomingHeadlineStyle = computed(() => ({
+  opacity: headlineSwitch.value,
+  transform: `translateY(${(1 - headlineSwitch.value) * 28}px)`,
+}))
 </script>
