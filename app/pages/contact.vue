@@ -59,21 +59,31 @@
           </div>
           <div class="flex gap-3">
             <Icon
-              name="lucide:phone-off"
+              name="lucide:calendar-check"
               class="mt-1 size-5 shrink-0 text-primary"
             />
-            <p class="text-sm text-muted-foreground">
-              {{ site.reservationNote }}
-            </p>
+            <div>
+              <h3 class="font-display font-bold text-foreground">
+                預約方式
+              </h3>
+              <p class="mt-1 text-sm text-muted-foreground">
+                {{ site.reservationNote }}
+              </p>
+            </div>
           </div>
           <div class="flex gap-3">
             <Icon
               name="lucide:mail"
               class="mt-1 size-5 shrink-0 text-primary"
             />
-            <p class="text-sm text-muted-foreground">
-              {{ site.email }}
-            </p>
+            <div>
+              <h3 class="font-display font-bold text-foreground">
+                電子信箱
+              </h3>
+              <p class="mt-1 text-sm text-muted-foreground">
+                {{ site.email }}
+              </p>
+            </div>
           </div>
         </div>
       </div>

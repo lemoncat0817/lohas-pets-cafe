@@ -88,10 +88,10 @@
           </li>
           <li class="flex gap-2">
             <Icon
-              name="lucide:phone-off"
+              name="lucide:calendar-check"
               class="mt-0.5 size-4 shrink-0 text-primary"
             />
-            <span>{{ site.reservationNote }}</span>
+            <span>採線上預約制（無電話客服）</span>
           </li>
         </ul>
       </div>

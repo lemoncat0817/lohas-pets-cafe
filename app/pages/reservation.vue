@@ -3,7 +3,7 @@
     <PageHero
       eyebrow="Reservation"
       title="線上訂位"
-      description="填寫以下表單送出訂位申請，我們會於營業時間內以電話或 Email 與您確認。"
+      description="填寫以下表單送出訂位申請，我們會於營業時間內以 Email 與您確認。"
     />
 
     <section class="container-cafe grid gap-12 py-16 sm:py-20 lg:grid-cols-5">
@@ -18,7 +18,7 @@
                 name="lucide:clock"
                 class="mt-0.5 size-4 shrink-0 text-primary"
               />
-              <span>本表單為<strong class="text-foreground">訂位申請</strong>，非即時確認；我們會盡快以電話或 Email 回覆是否可安排。</span>
+              <span>本表單為<strong class="text-foreground">訂位申請</strong>，非即時確認；我們會盡快以 Email 回覆是否可安排。</span>
             </li>
             <li class="flex gap-2">
               <Icon
