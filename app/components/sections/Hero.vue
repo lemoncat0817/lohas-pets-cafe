@@ -41,7 +41,7 @@
           探索你與毛孩子<br class="hidden sm:block">一起的新樂趣
         </h1>
         <p class="mt-5 max-w-md text-lg leading-relaxed text-muted-foreground">
-          享受一杯手作咖啡，結識新的毛絨朋友。LOHAS Pets Café 是專為人與寵物打造的溫暖角落。
+          享受一杯手作咖啡，認識可愛的毛孩。LOHAS Pets Café 是專為人與寵物打造的溫暖角落。
         </p>
         <div class="mt-8 flex flex-wrap gap-3">
           <Button

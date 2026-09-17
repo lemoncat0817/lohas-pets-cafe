@@ -4,7 +4,7 @@
       <div class="sm:col-span-2 lg:col-span-1">
         <AppLogo />
         <p class="mt-4 max-w-xs text-sm leading-relaxed text-muted-foreground">
-          {{ site.tagline }}，享受一杯咖啡，結識新的毛絨朋友。
+          {{ site.tagline }}，享受一杯咖啡，認識可愛的毛孩。
         </p>
         <div class="mt-5 flex items-center gap-3">
           <a

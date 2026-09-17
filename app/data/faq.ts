@@ -5,7 +5,7 @@ export interface FaqItem {
 
 export const faqs: FaqItem[] = [
   {
-    question: '可以帶哪些寵物一起入內用餐嗎？',
+    question: '可以帶寵物一起入內用餐嗎？',
     answer:
       '歡迎攜帶友善親人的貓、狗一同入內，體型不拘，但為了維護所有顧客與毛孩的用餐品質，需自備牽繩或提籠，且請留意自家毛孩與其他寵物、顧客的互動狀況。',
   },
