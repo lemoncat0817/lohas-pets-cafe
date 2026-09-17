@@ -75,8 +75,8 @@
 
     <section class="container-cafe py-16 sm:py-20">
       <SectionHeading
-        eyebrow="Founder"
-        title="主理人的話"
+        eyebrow="Store Manager"
+        title="店長的話"
       />
       <div
         :ref="founderReveal.target"
@@ -85,7 +85,7 @@
       >
         <NuxtImg
           src="/images/about/founder.webp"
-          alt="LOHAS Pets Café 創辦人檸檬貓"
+          alt="LOHAS Pets Café 店長檸檬貓"
           class="aspect-[4/5] w-full rounded-2xl object-cover sm:aspect-square"
           width="220"
           height="220"
@@ -96,7 +96,7 @@
             檸檬貓
           </h3>
           <p class="mt-0.5 text-sm text-primary">
-            創辦人 ‧ 主理人
+            店長
           </p>
           <p class="mt-4 leading-relaxed text-muted-foreground">
             曾在動物醫院擔任志工，看過太多毛孩因為「餐廳不能帶寵物」而被留在門外等待的畫面。與幾位同樣愛動物的朋友一拍即合，一起把這個想法變成了 LOHAS Pets Café。
